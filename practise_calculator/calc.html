@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM</title>
+    <style>
+        .heading>.sub-heading {
+            background-color: red;
+        }
+
+        .new-class {
+            color: aqua
+        }
+    </style>
+</head>
+
+<body>
+    <div class="heading" id="h1" attr="first-headingattribute">
+        HEADING 1
+        <div class="sub-heading">
+            Sub heading
+        </div>
+    </div>
+
+    <div class="heading" id="h2">
+        HEADING 2
+        <div class="sub-heading">
+            Sub heading2
+        </div>
+    </div>
+    <div class="sub-heading">Sub heading Outside</div>
+    <button class="btn" id="btn1">Click Me </button>
+    <button class="btn" id="btn2">Click Me </button>
+    <button class="btn" id="btn3">Click Me </button>
+</body>
+
+<script>
+    console.log(document.getElementById('h1'));
+    console.log(document.getElementsByClassName('heading'));
+    console.log(document.querySelectorAll('.heading>.sub-heading')
+    )
+
+    let firstHeading = document.getElementById('h1');
+
+    firstHeading.textContent = "FIRST HEADING"
+    firstHeading.innerText = "<h1>TEST</h1>";
+    firstHeading.innerHTML = "<h1>TEST</h1>";
+
+
+    console.log(firstHeading.getAttribute('attr'))
+    // firstHeading.setAttribute("class", "test");
+
+    firstHeading.style.backgroundColor = "orange"
+    firstHeading.style.fontSize = "3rem";
+
+    firstHeading.classList.add("new-class");
+
+    console.log(firstHeading.classList.contains('new-classs'));
+
+
+    let newElement = document.createElement("span");
+    newElement.innerHTML = "SPAN ELEMENT";
+
+
+    firstHeading.appendChild(newElement);
+
+
+    let button1 = document.getElementById("btn1");
+    // {button}
+
+    const clickFunction = () => {
+        alert("Clicked");
+    }
+
+    // button1.addEventListener('dblclick', clickFunction);
+
+    firstHeading.addEventListener('click', () => {
+
+        alert("HEADING 1 CLICKED")
+    })
+
+
+
+    let buttons = document.getElementsByClassName("btn");
+    // [{button}, {button}]
+
+    console.log(buttons)
+    // for (element of buttons) {
+    //     element.addEventListener("click", clickFunction);
+    // }
+
+    buttons[0].addEventListener("click", clickFunction)
+
+
+
+</script>
+
+</html>

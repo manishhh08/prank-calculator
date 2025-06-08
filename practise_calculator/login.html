@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            background-color: #e2e2e2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px
+        }
+
+        .wrapper {
+            height: 350px;
+            width: 300px;
+            background-color: white;
+            box-shadow: 4px 5px 14px 1px #c2c2c2;
+            border-radius: 50px;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            padding: 30px;
+            justify-content: center;
+
+        }
+
+        .wrapper>input {
+            height: 50px;
+            border-radius: 10px;
+            border: 1px rgb(163, 163, 163) solid
+        }
+
+        .wrapper>input[readonly] {
+            background-color: rgb(226, 226, 226);
+        }
+
+        .wrapper>button {
+            height: 50px;
+            border-radius: 10px;
+            border: 1px rgb(163, 163, 163) solid;
+            background-color: rgb(116, 171, 255)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h3>Login</h3>
+        <label>Email</label>
+        <input type="email" name="email" id="email">
+        <label>Password</label>
+        <input type="password" name="password" id="password">
+        <button id="login-btn">Login</button>
+    </div>
+    <div class="wrapper">
+        <h3>Login Details</h3>
+        <h2>Email: <span id="emailValue"></span></h2>
+        <h2>Password: <span id="passwordValue"></span></h2>
+    </div>
+</body>
+
+<script>
+
+    let loginBtn = document.getElementById('login-btn');
+
+    const loginFunction = () => {
+        let emailInputField = document.getElementById('email');
+
+        let emailValue = emailInputField.value;
+
+        let passwordInputField = document.getElementById('password');
+
+        let passwordValue = passwordInputField.value;
+
+        alert("Hi! \n email : " + emailValue + "\n password: " + passwordValue);
+
+
+        // populate the details
+        let emailSpan = document.getElementById("emailValue");
+        emailSpan.innerText = emailValue;
+
+
+    }
+
+    loginBtn.addEventListener('click', loginFunction)
+
+</script>
+
+</html>
